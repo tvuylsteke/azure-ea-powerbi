@@ -61,9 +61,9 @@ You can open the [Configure-for_Download-EA-UsageData.ps1](/Configure-for_Downlo
 In order for the script to run periodically we need to create some schedules for your runbook. Based on your needs you could tweak the following proposal:
 
 * Schedule #1: daily at 5:00: no parameters
-* Schedule #2: once every month on the first of the month at 6:00: parameter runForPreviousMonth set to $true
+* Schedule #2: once every month on the 7th of the month at 6:00: parameter runForPreviousMonth set to $true
 
-The 2nd schedule ensures when we start a new month we don't have a gap of 5:00 till the end of the day for the previous month. We could also schedule our first schedule at 23:59, but I'm not sure the EA data is updated that fast so we could still potentially miss some records.
+The 2nd schedule ensures we don't have a gap at the end of the previous month. As the EA Usage Data might be lagging a few days behind.
 
 Execute the runbook at least once so you have some data. Check the container contents to be sure:
 
