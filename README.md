@@ -39,6 +39,7 @@ Now that we have configured the automated download of the usage data it's to get
 * Click Get Data and choose **Blank Query**. A second window should open up. 
 * Choose Advanced Editor and copy paste the code from the [PowerBI-EA-UsageData-v2.m](/PowerBI-EA-UsageData-v2.m) file. 
 * Replace the **EA Enrollment Number** on the 2nd line (1234567 in the sample code) 
+* The line that starts with #"Setup: Filtered Rows" (line 9) controls how many months are made available. The sample currently takes 12 months into account, including the current month.
 * Click done in the advanced editor
 * You'll see a yellow bar asking you to specify credentials to connect. Click Edit Credentials.
 * Copy paste the **EA API Key** you copied earlier
