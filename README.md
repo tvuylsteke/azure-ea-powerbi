@@ -12,7 +12,7 @@ But the biggest problem I see and hear about is the tags data. Typically people 
 
 Yep, that's JSON. The data in that format is basically useless within Power BI online. If we'd have additional columns like Environment and Application we could do things like this:
 
-![Alt text](../IMG/PowerBIDesktop.png?raw=true)
+![Alt text](/IMG/PowerBIDesktop.png?raw=true)
 
 The script on this repository does that. The V1 folder contains my previous attempt at tackling this challenge. While it's working fine it requires additional services like Azure Automation and an Azure Storage Account. Eventually I found out I could get rid of all this and just use the following components:
 
@@ -62,7 +62,7 @@ The first thing you'll want to do is ensure your data is refreshed regularly. Ev
 
 Here's a very basic example of a dashboard. I wanted to show this particular example as it demonstrates the usage of Power BI alerts. 
 
-![Alt text](../IMG/PowerBIAlert.png?raw=true)
+![Alt text](/IMG/PowerBIAlert.png?raw=true)
 
 ## Notes
 
