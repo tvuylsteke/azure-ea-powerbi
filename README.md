@@ -46,7 +46,7 @@ If you like to use an existing storage account that's fine. Just make sure you h
 
 ### Azure Automation Runbook
 
-Now create a new or use an existing **Azure Automation account**. In that Automation Account we we'll setup a PowerShell script that will run regulary. The script can be found in this repository: Download-EA-UsageData.ps1 [../Download-EA-UsageData.ps1](azure-ea-powerbi/Download-EA-UsageData.ps1). When creating the runbook you can pick regular PowerShell and copy paste the contents of the Download-EA-UsageData.ps1 script. You don't need to change anything in the script.
+Now create a new or use an existing **Azure Automation account**. In that Automation Account we we'll setup a PowerShell script that will run regulary. The script can be found in this repository: [Download-EA-UsageData.ps1](/Download-EA-UsageData.ps1). When creating the runbook you can pick regular PowerShell and copy paste the contents of the Download-EA-UsageData.ps1 script. You don't need to change anything in the script.
 
 Next up is setting up the required **Automation Variables**. We'll have variables for the following items:
 * EA Enrollment number
@@ -55,7 +55,7 @@ Next up is setting up the required **Automation Variables**. We'll have variable
 * Container
 * Azure Storage Account Access Key
 
-You can open the Configure-for_Download-EA-UsageData.ps1 [../Configure-for_Download-EA-UsageData.ps1](../Configure-for_Download-EA-UsageData.ps1)using your favorite text editor and fill in the required values. Then execute the commands against your Azure subscription. We're using PowerShell for this because it avoids the limitation of the GUI with regards to the maximum length variables can have. And it's easy!
+You can open the [Configure-for_Download-EA-UsageData.ps1](/Configure-for_Download-EA-UsageData.ps1)using your favorite text editor and fill in the required values. Then execute the commands against your Azure subscription. We're using PowerShell for this because it avoids the limitation of the GUI with regards to the maximum length variables can have. And it's easy!
 
 In order for the script to run periodically we need to create some schedules. Based on your needs you could tweak the following proposal:
 
