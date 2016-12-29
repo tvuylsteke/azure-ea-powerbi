@@ -1,5 +1,5 @@
 let
-    Source = AzureEnterprise.Tables("https://ea.azure.com/rest/123456"),
+    Source = AzureEnterprise.Tables("https://ea.azure.com/rest/1234567"),
     Detail = Source{[Key="Detail"]}[Data],
     //duplicating this column so that we don't touch the original
     #"Setup: Duplicated Column" = Table.DuplicateColumn(Detail, "Name", "Year-Month"),

@@ -26,7 +26,7 @@ Here's how you can get started:
 
 Log in to the Azure EA Portal (https://ea.azure.com) and get your:
 
-* EA Enrollment number: e.g. 123456789
+* EA Enrollment number: e.g. 1234567
 * EA API key: xxxx
 
 ## Power BI Desktop
