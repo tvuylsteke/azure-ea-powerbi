@@ -1,7 +1,7 @@
 # Azure EA Usage Data with Power BI
 
 This repository contains some scripts I use to get the usage data of an Azure Enterprise Agreement (EA) into Power BI. In order to get this data into Power BI there are several options.
-* Azure Enterprise Power Content Pack: https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-enterprise/
+* [Azure Enterprise Power Content Pack](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-enterprise/)
 * Something custom which extracts data from the EA and puts it somewhere Power BI online can get it.
 
 Now the content pack definately has its advantages. For one it's dead easy. You just need your enrollment number and API key and off you go. Even with the free Power BI edition you're good to go! Now there's a downside to this story. One thing which I find a pity is that you can't use Power BI Desktop to edit your reports or shape your data. You can only work from the Power BI online tooling. That alone could be acceptable.
@@ -46,7 +46,7 @@ If you like to use an existing storage account that's fine. Just make sure you h
 
 ### Azure Automation Runbook
 
-Now create a new or use an existing **Azure Automation account**. In that Automation Account we we'll setup a PowerShell script that will run regulary. The script can be found in this repository: Download-EA-UsageData.ps1 [../Download-EA-UsageData.ps1](../Download-EA-UsageData.ps1). When creating the runbook you can pick regular PowerShell and copy paste the contents of the Download-EA-UsageData.ps1 script. You don't need to change anything in the script.
+Now create a new or use an existing **Azure Automation account**. In that Automation Account we we'll setup a PowerShell script that will run regulary. The script can be found in this repository: Download-EA-UsageData.ps1 [../Download-EA-UsageData.ps1](azure-ea-powerbi/Download-EA-UsageData.ps1). When creating the runbook you can pick regular PowerShell and copy paste the contents of the Download-EA-UsageData.ps1 script. You don't need to change anything in the script.
 
 Next up is setting up the required **Automation Variables**. We'll have variables for the following items:
 * EA Enrollment number
