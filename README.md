@@ -78,4 +78,4 @@ Some general notes and thoughts:
 
 [2017/01/05] I've added a filter for the tags that are expanded. Some people mentioned that somewhere along the line tags are added that are not visible within Azure. These all start with "Hidden-" The following line removes these and prevents the columns being added. 
 
-#"Tags: Filtered FieldNames" = List.Select(#"Tags: FieldNames", each not Text.StartsWith(_,"Hidden-")),
+"Tags: Filtered FieldNames" = List.Select(#"Tags: FieldNames", each not Text.StartsWith(_,"Hidden-")),
