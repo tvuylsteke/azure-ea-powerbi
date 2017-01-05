@@ -36,10 +36,14 @@ let
     //for each of the Tags: take the fieldnames (key names) and add them to a list while removing duplicates
     #"Tags: FieldNames" = List.Distinct(List.Combine(List.Transform(#"Tags: Content", 
                         each Record.FieldNames(_)))),
+    //sometimes EA Usage Data contains a lot of hidden tags. For now I don't know where they are comming from
+    //this results in a massive amount of columns. For now I'm just filtering them
+    //Examples: "Hidden-Related:/Subscription/…" or "Hidden-Devtestlabs-Labid..."
+    #"Tags: Filtered FieldNames" = List.Select(#"Tags: FieldNames", each not Text.StartsWith(_,"Hidden-")),
     //this is the list of the actual column names. We're prepending Tag.'
-    #"Tags: New Column Names" = List.Transform(#"Tags: FieldNames", each "Tag." & _),    
+    #"Tags: New Column Names" = List.Transform(#"Tags: Filtered FieldNames", each "Tag." & _),    
     //expand the JSON records using the fieldnames (keys) to new column names list mapping
-    #"Tags: Expanded" = Table.ExpandRecordColumn(#"Tags: in JSON", "Tags - Copy", #"Tags: FieldNames",#"Tags: New Column Names"),
+    #"Tags: Expanded" = Table.ExpandRecordColumn(#"Tags: in JSON", "Tags - Copy", #"Tags: Filtered FieldNames",#"Tags: New Column Names"),
     //create a column with the consumption date (instead of 3 separate columns)    
     #"Consumption Date: Added Column" = Table.AddColumn(#"Tags: Expanded", "ConsumptionDate", each Text.From([Month])&"/"&Text.From([Day])&"/"&Text.From([Year])),
     #"Consumption Date: Change to Date Type" = Table.TransformColumnTypes(#"Consumption Date: Added Column",{{"ConsumptionDate", type date}},"en-US"),

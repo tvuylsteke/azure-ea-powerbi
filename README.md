@@ -66,8 +66,16 @@ Here's a very basic example of a dashboard. I wanted to show this particular exa
 
 ## Notes
 
-Some general notes and random thoughts:
+Some general notes and thoughts:
 
 * **The EA API Key is limited in time!** While keys seem like an easy way to provide access to another service, make sure you know where and when to update the key so that everything keeps running. In our current setup we'll need to update the key in Power BI online. Updating the key used by the Power BI Desktop will only be necessary when we're doing updates to our reports.
 
 * Apply tags retroactively. I've heard this a few times. People start with tagging resources but come to conclusion that this only applies to the usage data from that moment on. For now the M query provided does not solve this problem. But I guess the query could be extended to do that.
+
+* **Performance** While I was very satisfied that I was able to talk directly to the API, I'm not so sure it's the best solution. Especially when editting the M query the performance feels worse then when working with CSV files. Personally I'll need to work a bit more with it to make up my mind. I believe there's a clear difference between authoring the data and reports and afterwards consuming it on Power BI. The first one can be slower or maybe using a workaround by pointing to a local CSV until you're happy with the result. The latter you'd expect to be responsive.
+
+## ChangeLog
+
+[2017/01/05] I've added a filter for the tags that are expanded. Some people mentioned that somewhere along the line tags are added that are not visible within Azure. These all start with "Hidden-" The following line removes these and prevents the columns being added. 
+
+#"Tags: Filtered FieldNames" = List.Select(#"Tags: FieldNames", each not Text.StartsWith(_,"Hidden-")),
