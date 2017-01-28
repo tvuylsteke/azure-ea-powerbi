@@ -8,7 +8,7 @@ With the EA details we can start setting up the data sources within Power Bi. Fo
 
 * Open Power BI Desktop. 
 * Click Get Data and choose **Blank Query**. A second window should open up. 
-* Choose Advanced Editor and copy paste the code from the [PowerBI-EA-UsageData-function-v3.m](/PowerBI-EA-UsageData-function-v3.m) file. 
+* Choose Advanced Editor and copy paste the code from the [PowerBI-EA-UsageData-function-v3.m](PowerBI-EA-UsageData-function-v3.m) file. 
 * Replace the **EA Enrollment Number** on the 3th line (1234567 in the sample code) 
 * Click done in the advanced editor
 * Name the query: "getEAUsageData"
@@ -16,7 +16,7 @@ With the EA details we can start setting up the data sources within Power Bi. Fo
 ### Set Up The Data Source
 
 * Click Get Data and choose **Blank Query**. A second window should open up. 
-* Choose Advanced Editor and copy paste the code from the [PowerBI-EA-UsageData-v3.m](/PowerBI-EA-UsageData-v3.m) file. * 
+* Choose Advanced Editor and copy paste the code from the [PowerBI-EA-UsageData-v3.m](PowerBI-EA-UsageData-v3.m) file.
 * The line that starts with #"Date Range List" (line 2) controls how many months are made available. The sample currently takes 14 months into account, including the current month.
 * Click done in the advanced editor
 * You'll see a yellow bar asking you to specify credentials to connect. Click Edit Credentials.
