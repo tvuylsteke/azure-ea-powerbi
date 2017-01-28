@@ -47,7 +47,7 @@ If you like to use an existing storage account that's fine. Just make sure you h
 
 ### Azure Automation Runbook
 
-Now create a new or use an existing **Azure Automation account**. In that Automation account we we'll setup a PowerShell script that will run regulary. The script can be found in this repository: [Download-EA-UsageData.ps1](/Download-EA-UsageData.ps1). When creating the runbook you can pick regular PowerShell and copy paste the contents of the [Download-EA-UsageData.ps1](Download-EA-UsageData.ps1) script. You don't need to change anything in the script.
+Now create a new or use an existing **Azure Automation account**. In that Automation account we we'll setup a PowerShell script that will run regulary. The script can be found in this repository: [Download-EA-UsageData.ps1](Download-EA-UsageData.ps1). When creating the runbook you can pick regular PowerShell and copy paste the contents of the [Download-EA-UsageData.ps1](Download-EA-UsageData.ps1) script. You don't need to change anything in the script.
 
 Next up is setting up the required **Automation Variables**. We'll have variables for the following items:
 * EA Enrollment number
