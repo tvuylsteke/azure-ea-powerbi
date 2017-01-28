@@ -84,7 +84,7 @@ Now that we have configured the automated download of the usage data it's to get
 * You'll see a yellow bar asking you to specify credentials to connect. Click Edit Credentials.
 * Copy paste the **storage account access key** you copied earlier
 * Now it should refresh and load your data
-* Provide a name for the query: e.g. Azure Usage Data
+* Provide a name for the query: "Usage Detail"
 * Close the query window and click yes when asked to apply query changes
 
 ### Report

@@ -14,7 +14,7 @@ Yep, that's JSON. The data in that format is basically useless within Power BI o
 
 ![Alt text](/IMG/PowerBIDesktop.png?raw=true)
 
-The script on this repository does that. The V1 folder contains my previous attempt at tackling this challenge. While it's working fine it requires additional services like Azure Automation and an Azure Storage Account. Eventually I found out I could get rid of all this and just use the following components:
+The scripts on this repository does that. The "Details - V1" folder contains my first attempt at tackling this challenge. While it's working fine it requires additional services like Azure Automation and an Azure Storage Account. Eventually I found out I could get rid of all this and just use the following components:
 
 * Azure EA Rest API: allows you to download the usage data
 * Power BI Desktop: allows you to do all kinds of funky things with the data before making it available to your reports
@@ -31,21 +31,10 @@ Log in to the Azure EA Portal (https://ea.azure.com) and get your:
 
 ## Power BI Desktop
 
-Now that we have configured the automated download of the usage data it's to get the Power BI part up and running. Using the M query language we will read all CSV files we find in the container and shape the data so that it can be used within our reports.
+Depending on the size of your environment you can choose which appraoch to follow:
 
-### Set Up The Data Source
-
-* Open Power BI Desktop. 
-* Click Get Data and choose **Blank Query**. A second window should open up. 
-* Choose Advanced Editor and copy paste the code from the [PowerBI-EA-UsageData-v2.m](/PowerBI-EA-UsageData-v2.m) file. 
-* Replace the **EA Enrollment Number** on the 2nd line (1234567 in the sample code) 
-* The line that starts with #"Setup: Filtered Rows" (line 9) controls how many months are made available. The sample currently takes 12 months into account, including the current month.
-* Click done in the advanced editor
-* You'll see a yellow bar asking you to specify credentials to connect. Click Edit Credentials.
-* Copy paste the **EA API Key** you copied earlier
-* Now it should refresh and load your data
-* Provide a name for the query: e.g. Azure Usage Data
-* Close the query window and click yes when asked to apply query changes
+* Simple filtering: [PowerBI-EA-UsageData-v2](/Details - V2 - One API Call/README.md) 
+* Filter before getting data: [PowerBI-EA-UsageData-v3](/Details - V3 - Multiple API Calls/README.md) 
 
 ### Report
 
@@ -79,3 +68,7 @@ Some general notes and thoughts:
 [2017/01/05] I've added a filter for the tags that are expanded. Some people mentioned that somewhere along the line tags are added that are not visible within Azure. These all start with "Hidden-" The following line removes these and prevents the columns being added. 
 
 "Tags: Filtered FieldNames" = List.Select(#"Tags: FieldNames", each not Text.StartsWith(_,"Hidden-")),
+
+[2017/01/27] I've moved the PowerBI-EA-UsageData-v2 to a separate folder and added the V3 one. The V3 one is very similar to the V2 one however this one uses a function. The advantage is that the function only retrieves the data that you ask for.
+
+[2017/01/28] I've added a script to get the EA summary data and a data source to show the last date of the data in the retrieved set.
