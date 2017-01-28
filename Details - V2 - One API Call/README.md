@@ -8,7 +8,7 @@ With the EA details (enrollment number and API key) we can start setting up the 
 
 * Open Power BI Desktop. 
 * Click Get Data and choose **Blank Query**. A second window should open up. 
-* Choose Advanced Editor and copy paste the code from the [PowerBI-EA-UsageData-v2.m](/PowerBI-EA-UsageData-v2.m) file. 
+* Choose Advanced Editor and copy paste the code from the [PowerBI-EA-UsageData-v2.m](PowerBI-EA-UsageData-v2.m) file. 
 * Replace the **EA Enrollment Number** on the 2nd line (1234567 in the sample code) 
 * The line that starts with #"Setup: Filtered Rows" (line 9) controls how many months are made available. The sample currently takes 12 months into account, including the current month.
 * Click done in the advanced editor

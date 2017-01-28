@@ -12,7 +12,7 @@ This configuration happens within Power BI Desktop
 
 * Open Power BI Desktop. 
 * Click Get Data and choose **Blank Query**. A second window should open up. 
-* Choose Advanced Editor and copy paste the code from the [PowerBI-EA-DataDate.m](/PowerBI-EA-DataDate.m) file. 
+* Choose Advanced Editor and copy paste the code from the [PowerBI-EA-DataDate.m](PowerBI-EA-DataDate.m) file. 
 * Replace the **EA Enrollment Number** on the 3th line (1234567 in the sample code) 
 * Click done in the advanced editor
 * Name the query: "Most Recent Data Date"

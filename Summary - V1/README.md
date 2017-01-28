@@ -12,7 +12,7 @@ This configuration happens within Power BI Desktop
 
 * Open Power BI Desktop. 
 * Click Get Data and choose **Blank Query**. A second window should open up. 
-* Choose Advanced Editor and copy paste the code from the [PowerBI-EA-Summary-v1.m](/PowerBI-EA-Summary-v1.m) file. 
+* Choose Advanced Editor and copy paste the code from the [PowerBI-EA-Summary-v1.m](PowerBI-EA-Summary-v1.m) file. 
 * Replace the **EA Enrollment Number** on the 2nd line (1234567 in the sample code) 
 * Click done in the advanced editor
 * Name the query: "Usage Summary"

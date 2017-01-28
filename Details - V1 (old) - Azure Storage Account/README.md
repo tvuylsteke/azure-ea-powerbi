@@ -47,7 +47,7 @@ If you like to use an existing storage account that's fine. Just make sure you h
 
 ### Azure Automation Runbook
 
-Now create a new or use an existing **Azure Automation account**. In that Automation account we we'll setup a PowerShell script that will run regulary. The script can be found in this repository: [Download-EA-UsageData.ps1](/Download-EA-UsageData.ps1). When creating the runbook you can pick regular PowerShell and copy paste the contents of the [Download-EA-UsageData.ps1](/Download-EA-UsageData.ps1) script. You don't need to change anything in the script.
+Now create a new or use an existing **Azure Automation account**. In that Automation account we we'll setup a PowerShell script that will run regulary. The script can be found in this repository: [Download-EA-UsageData.ps1](/Download-EA-UsageData.ps1). When creating the runbook you can pick regular PowerShell and copy paste the contents of the [Download-EA-UsageData.ps1](Download-EA-UsageData.ps1) script. You don't need to change anything in the script.
 
 Next up is setting up the required **Automation Variables**. We'll have variables for the following items:
 * EA Enrollment number
@@ -56,7 +56,7 @@ Next up is setting up the required **Automation Variables**. We'll have variable
 * Container
 * Azure Storage Account Access Key
 
-You can open the [Configure-for_Download-EA-UsageData.ps1](/Configure-for_Download-EA-UsageData.ps1)using your favorite text editor and fill in the required values. Then execute the commands against your Azure subscription. We're using PowerShell for this because it avoids the limitation of the GUI with regards to the maximum length variables can have. And it's easy!
+You can open the [Configure-for_Download-EA-UsageData.ps1](Configure-for_Download-EA-UsageData.ps1)using your favorite text editor and fill in the required values. Then execute the commands against your Azure subscription. We're using PowerShell for this because it avoids the limitation of the GUI with regards to the maximum length variables can have. And it's easy!
 
 In order for the script to run periodically we need to create some schedules for your runbook. Based on your needs you could tweak the following proposal:
 
@@ -77,7 +77,7 @@ Now that we have configured the automated download of the usage data it's to get
 
 * Open Power BI Desktop. 
 * Click Get Data and choose **Blank Query**. A second window should open up. 
-* Choose Advanced Editor and copy paste the code from the [PowerBI-EA-UsageData.m](/PowerBI-EA-UsageData.m) file. 
+* Choose Advanced Editor and copy paste the code from the [PowerBI-EA-UsageData.m](PowerBI-EA-UsageData.m) file. 
 * Replace the **storage account name** on the 2nd line (setspnpowerbi in the sample code)
 * Replace the **container name** on the 3th line (usagedata in the sample code) 
 * Click done in the advanced editor
