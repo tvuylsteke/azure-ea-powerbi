@@ -7,12 +7,15 @@ One of the things which bothered me for a while is that it's pretty hard to get 
 But that's all there is. They are counters and go up every once in a while. Pretty hard to keep track of it are see trends/anomalies. Power BI to the rescue again! This one is not as complex to build but I did got a push that helped me achieve my goal. Here's the endresult:
 
 * Showing the data in a graph
+
 ![Alt text](../IMG/ExpressRoute-Report1.png?raw=true)
 
 * Showing the data in a table
+
 ![Alt text](../IMG/ExpressRoute-Report2.png?raw=true)
 
 * Showing the data in a stacked graph
+
 ![Alt text](../IMG/ExpressRoute-Report3.png?raw=true)
 
 In order to visualize the data in Power BI we need a source. The source will be a CSV file that is stored on a storage account in Azure. The CSV file itself will be maintained by an Azure Automation job that runs every 3 hours. You could have it run more often, but my data showed me that the counters don't refresh much more than that. So running the script more is pointless.
@@ -47,8 +50,7 @@ Now we have the counters, but we need to get the delta's. We can do that using t
    'ExpressRouteCounters'[Index];
    'ExpressRouteCounters'[Index]-1)
  )
-
- * PrimaryBytesOut Difference = 
+* PrimaryBytesOut Difference = 
  'ExpressRouteCounters'[PrimaryBytesOut] - IF(
   'ExpressRouteCounters'[Index] = 0;
   'ExpressRouteCounters'[PrimaryBytesOut];
@@ -57,8 +59,7 @@ Now we have the counters, but we need to get the delta's. We can do that using t
    'ExpressRouteCounters'[Index];
    'ExpressRouteCounters'[Index]-1)
  )
-
- * SecondaryBytesIn Difference = 
+* SecondaryBytesIn Difference = 
  'ExpressRouteCounters'[SecondaryBytesIn] - IF(
   'ExpressRouteCounters'[Index] = 0;
   'ExpressRouteCounters'[SecondaryBytesIn];
@@ -67,7 +68,6 @@ Now we have the counters, but we need to get the delta's. We can do that using t
    'ExpressRouteCounters'[Index];
    'ExpressRouteCounters'[Index]-1)
  )
- 
 * SecondaryBytesOut Difference = 
  'ExpressRouteCounters'[SecondaryBytesOut] - IF(
   'ExpressRouteCounters'[Index] = 0;
