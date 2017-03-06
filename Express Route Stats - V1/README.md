@@ -42,41 +42,61 @@ The result is something like this:
 Now we have the counters, but we need to get the delta's. We can do that using the following columns:
 
 * PrimaryBytesIn Difference = 
- 'ExpressRouteCounters'[PrimaryBytesIn] - IF(
-  'ExpressRouteCounters'[Index] = 0;
-  'ExpressRouteCounters'[PrimaryBytesIn];
-  LOOKUPVALUE(
-   'ExpressRouteCounters'[PrimaryBytesIn];
-   'ExpressRouteCounters'[Index];
-   'ExpressRouteCounters'[Index]-1)
- )
+ 'ExpressRouteCounters'[PrimaryBytesIn] - IF(
+  'ExpressRouteCounters'[Index] = 0,
+  'ExpressRouteCounters'[PrimaryBytesIn],
+  IF(('ExpressRouteCounters'[PrimaryBytesIn] - LOOKUPVALUE(
+   'ExpressRouteCounters'[PrimaryBytesIn],
+   'ExpressRouteCounters'[Index],
+   'ExpressRouteCounters'[Index]-1)) < 0,
+   'ExpressRouteCounters'[PrimaryBytesIn],
+   LOOKUPVALUE(
+   'ExpressRouteCounters'[PrimaryBytesIn],
+   'ExpressRouteCounters'[Index],
+   'ExpressRouteCounters'[Index]-1))
+)
 * PrimaryBytesOut Difference = 
- 'ExpressRouteCounters'[PrimaryBytesOut] - IF(
-  'ExpressRouteCounters'[Index] = 0;
-  'ExpressRouteCounters'[PrimaryBytesOut];
-  LOOKUPVALUE(
-   'ExpressRouteCounters'[PrimaryBytesOut];
-   'ExpressRouteCounters'[Index];
-   'ExpressRouteCounters'[Index]-1)
- )
+ 'ExpressRouteCounters'[PrimaryBytesOut] - IF(
+  'ExpressRouteCounters'[Index] = 0,
+  'ExpressRouteCounters'[PrimaryBytesOut],
+  IF(('ExpressRouteCounters'[PrimaryBytesOut] - LOOKUPVALUE(
+   'ExpressRouteCounters'[PrimaryBytesOut],
+   'ExpressRouteCounters'[Index],
+   'ExpressRouteCounters'[Index]-1)) < 0,
+   'ExpressRouteCounters'[PrimaryBytesOut],
+   LOOKUPVALUE(
+   'ExpressRouteCounters'[PrimaryBytesOut],
+   'ExpressRouteCounters'[Index],
+   'ExpressRouteCounters'[Index]-1))
+)
 * SecondaryBytesIn Difference = 
- 'ExpressRouteCounters'[SecondaryBytesIn] - IF(
-  'ExpressRouteCounters'[Index] = 0;
-  'ExpressRouteCounters'[SecondaryBytesIn];
-  LOOKUPVALUE(
-   'ExpressRouteCounters'[SecondaryBytesIn];
-   'ExpressRouteCounters'[Index];
-   'ExpressRouteCounters'[Index]-1)
- )
+ 'ExpressRouteCounters'[SecondaryBytesIn] - IF(
+  'ExpressRouteCounters'[Index] = 0,
+  'ExpressRouteCounters'[SecondaryBytesIn],
+  IF(('ExpressRouteCounters'[SecondaryBytesIn] - LOOKUPVALUE(
+   'ExpressRouteCounters'[SecondaryBytesIn],
+   'ExpressRouteCounters'[Index],
+   'ExpressRouteCounters'[Index]-1)) < 0,
+   'ExpressRouteCounters'[SecondaryBytesIn],
+   LOOKUPVALUE(
+   'ExpressRouteCounters'[SecondaryBytesIn],
+   'ExpressRouteCounters'[Index],
+   'ExpressRouteCounters'[Index]-1))
+)
 * SecondaryBytesOut Difference = 
- 'ExpressRouteCounters'[SecondaryBytesOut] - IF(
-  'ExpressRouteCounters'[Index] = 0;
-  'ExpressRouteCounters'[SecondaryBytesOut];
-  LOOKUPVALUE(
-   'ExpressRouteCounters'[SecondaryBytesOut];
-   'ExpressRouteCounters'[Index];
-   'ExpressRouteCounters'[Index]-1)
- )
+ 'ExpressRouteCounters'[SecondaryBytesOut] - IF(
+  'ExpressRouteCounters'[Index] = 0,
+  'ExpressRouteCounters'[SecondaryBytesOut],
+  IF(('ExpressRouteCounters'[SecondaryBytesOut] - LOOKUPVALUE(
+   'ExpressRouteCounters'[SecondaryBytesOut],
+   'ExpressRouteCounters'[Index],
+   'ExpressRouteCounters'[Index]-1)) < 0,
+   'ExpressRouteCounters'[SecondaryBytesOut],
+   LOOKUPVALUE(
+   'ExpressRouteCounters'[SecondaryBytesOut],
+   'ExpressRouteCounters'[Index],
+   'ExpressRouteCounters'[Index]-1))
+)
 
 I prefer working with GB instead of Bytes so I added some more columns. I could probably have combined that in the previous columns, but I didn't want to make the query all too complex.
 
