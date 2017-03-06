@@ -98,6 +98,7 @@ Now we have the counters, but we need to get the delta's. We can do that using t
    'ExpressRouteCounters'[Index]-1))
 )
 
+Initially the formula's didn't took into account that somehwere in the month the counters are reset to 0. I just added a check to see if the delta is below 0 and if it did to use 0 as a start value again.
 I prefer working with GB instead of Bytes so I added some more columns. I could probably have combined that in the previous columns, but I didn't want to make the query all too complex.
 
 * PrimaryGBin = Round('ExpressRouteCounters'[PrimaryBytesIn Difference] / 1024 / 1024 / 1024;1)
