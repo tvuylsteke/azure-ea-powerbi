@@ -1,6 +1,6 @@
 # Visualize Azure EA Usage Data with Power BI
 
-This repos/itory \/contains some scripts you can use to get the usage data of an Azure Enterprise Agreement (EA) into Power BI. In order to get this data into Power BI there are several options.
+This repository contains some scripts you can use to get the usage data of an Azure Enterprise Agreement (EA) into Power BI. In order to get this data into Power BI there are several options.
 * Use the [Azure Enterprise Power Content Pack](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-enterprise/)
 * Do it yourself.
 
